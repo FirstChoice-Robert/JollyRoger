@@ -1,0 +1,246 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://bfdyhbjn5tiio" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="1_r"]
+[ext_resource type="Texture2D" uid="uid://b4cairq2hudvv" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="2_r"]
+[ext_resource type="Texture2D" uid="uid://dm0bwlp06hqkn" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="3_r"]
+[ext_resource type="Texture2D" uid="uid://4y46qd4bkgbk" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="4_r"]
+[ext_resource type="Texture2D" uid="uid://c15y7dasx66i3" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 05.png" id="5_r"]
+[ext_resource type="Texture2D" uid="uid://cxa8sfp0dp025" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="6_r"]
+[ext_resource type="Texture2D" uid="uid://bjyiydusdo4ee" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 07.png" id="7_r"]
+[ext_resource type="Texture2D" uid="uid://bmje65evisi4p" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 08.png" id="8_r"]
+[ext_resource type="Texture2D" uid="uid://dsok7piy05b2n" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 01.png" id="9_r"]
+[ext_resource type="Texture2D" uid="uid://b0f07pwjrxiuo" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 02.png" id="10_r"]
+[ext_resource type="Texture2D" uid="uid://buff1wqx86h5r" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 03.png" id="11_r"]
+[ext_resource type="Texture2D" uid="uid://ctxeya3yrust6" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="12_r"]
+[ext_resource type="Texture2D" uid="uid://c55uskacnp8xl" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="13_r"]
+[ext_resource type="Texture2D" uid="uid://c4plrg40x7hsa" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="14_r"]
+[ext_resource type="Texture2D" uid="uid://cc2oglggao3d2" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 01.png" id="15_r"]
+[ext_resource type="Texture2D" uid="uid://dng2kv84puwpv" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 02.png" id="16_r"]
+[ext_resource type="Texture2D" uid="uid://mdm3heqhrn54" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 03.png" id="17_r"]
+[ext_resource type="Texture2D" uid="uid://1dhfojfjt0gk" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/04-Fall/Fall 01.png" id="18_r"]
+[ext_resource type="Texture2D" uid="uid://ctry2r5posnq7" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 01.png" id="19_r"]
+[ext_resource type="Texture2D" uid="uid://c8sfysddsqxsp" path="res://Treasure Hunters/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 02.png" id="20_r"]
+[ext_resource type="Script" uid="uid://cv3id3u1qd0r7" path="res://Scripts/character.gd" id="21_r"]
+[ext_resource type="AnimationNodeStateMachine" path="res://Statemachine/crusty_crew_state_machine.tres" id="22_r"]
+[ext_resource type="PackedScene" uid="uid://y1hargj8pca7" path="res://Scenes/Dust/jumpDust.tscn" id="23_r"]
+[ext_resource type="PackedScene" uid="uid://iiw8b25bha5j" path="res://Scenes/Dust/fallDust.tscn" id="24_r"]
+[ext_resource type="PackedScene" uid="uid://c673hr3vjt06" path="res://Scenes/Dust/runDust.tscn" id="25_r"]
+[ext_resource type="AudioStream" uid="uid://ccrvws8ads1bv" path="res://Sounds/PinkStar/pinkstar_jump.wav" id="26_r"]
+[ext_resource type="AudioStream" uid="uid://dio4peoiowtnw" path="res://Sounds/PinkStar/pinkstar_land.wav" id="27_r"]
+[ext_resource type="AudioStream" path="res://Sounds/PinkStar/pinkstar_step.tres" id="28_r"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_r")]
+}
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_r"), ExtResource("2_r"), ExtResource("3_r"), ExtResource("4_r"), ExtResource("5_r"), ExtResource("6_r"), ExtResource("7_r"), ExtResource("8_r")]
+}
+
+[sub_resource type="Animation" id="Animation_run"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_r"), ExtResource("10_r"), ExtResource("11_r"), ExtResource("12_r"), ExtResource("13_r"), ExtResource("14_r")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("25_r")],
+"method": &"_spawn_dust"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_r")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_r")
+}],
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_jump"]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_r"), ExtResource("16_r"), ExtResource("17_r")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("26_r")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_fall"]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_r")]
+}
+
+[sub_resource type="Animation" id="Animation_ground"]
+resource_name = "ground"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("19_r"), ExtResource("20_r")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("24_r")],
+"method": &"_spawn_dust"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("27_r")
+}],
+"times": PackedFloat32Array(0.033333335)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"fall": SubResource("Animation_fall"),
+&"ground": SubResource("Animation_ground"),
+&"idle": SubResource("Animation_idle"),
+&"jump": SubResource("Animation_jump"),
+&"run": SubResource("Animation_run")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ps"]
+radius = 9.0
+height = 22.0
+
+[node name="Pink Star" type="CharacterBody2D"]
+script = ExtResource("21_r")
+_jump_dust = ExtResource("23_r")
+_sprite_faces_left = true
+_random_anim_offset = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_ps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+texture = ExtResource("1_r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries/ = SubResource("AnimationLibrary_ps")
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = ExtResource("22_r")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+max_distance = 500.0
+max_polyphony = 2

@@ -1,0 +1,19 @@
+[gd_resource type="AudioStreamRandomizer" format=3]
+
+[ext_resource type="AudioStream" uid="uid://b6fhyea04gvvr" path="res://Sounds/Roger/roger_step_01.wav" id="1_rs"]
+[ext_resource type="AudioStream" uid="uid://d4e3lnru2nvkx" path="res://Sounds/Roger/roger_step_02.wav" id="2_rs"]
+[ext_resource type="AudioStream" uid="uid://cqs5d2ltt0438" path="res://Sounds/Roger/roger_step_03.wav" id="3_rs"]
+[ext_resource type="AudioStream" uid="uid://lchdqgrmbry7" path="res://Sounds/Roger/roger_step_04.wav" id="4_rs"]
+[ext_resource type="AudioStream" uid="uid://cekuvocdbj113" path="res://Sounds/Roger/roger_step_05.wav" id="5_rs"]
+[ext_resource type="AudioStream" uid="uid://cb2bq3o376qad" path="res://Sounds/Roger/roger_step_06.wav" id="6_rs"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("1_rs")
+stream_1/stream = ExtResource("2_rs")
+stream_2/stream = ExtResource("3_rs")
+stream_3/stream = ExtResource("4_rs")
+stream_4/stream = ExtResource("5_rs")
+stream_5/stream = ExtResource("6_rs")

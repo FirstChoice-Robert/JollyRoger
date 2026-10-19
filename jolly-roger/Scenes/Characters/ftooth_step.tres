@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c6cmtjyxo57bq"]
+
+[ext_resource type="AudioStream" uid="uid://cdhtjgylm5n0f" path="res://Sounds/FierceTooth/ftooth_step_01.wav" id="1_mt5cl"]
+[ext_resource type="AudioStream" uid="uid://dnt3ounwey1wr" path="res://Sounds/FierceTooth/ftooth_step_02.wav" id="2_uraik"]
+[ext_resource type="AudioStream" uid="uid://camwdhp4k27wv" path="res://Sounds/FierceTooth/ftooth_step_03.wav" id="3_vfwwg"]
+
+[resource]
+random_pitch = 1.0656005
+streams_count = 3
+stream_0/stream = ExtResource("1_mt5cl")
+stream_1/stream = ExtResource("2_uraik")
+stream_2/stream = ExtResource("3_vfwwg")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://t5lry85i83d6"]
+
+[ext_resource type="Texture2D" uid="uid://blpcwvvjm01ue" path="res://icon.svg" id="1_1304x"]
+[ext_resource type="PackedScene" uid="uid://dtl4jlucxbri4" path="res://Scenes/Characters/roger.tscn" id="2_g0573"]
+[ext_resource type="Script" uid="uid://bhisod6nmkwk2" path="res://Scripts/player.gd" id="3_g0573"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_700tv"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D" unique_id=572047008]
+
+[node name="Label" type="Label" parent="." unique_id=1216062315]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello World"
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1975211161]
+position = Vector2(575, 630)
+scale = Vector2(8.968751, 0.24999988)
+texture = ExtResource("1_1304x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=658456629]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=1530602831]
+shape = SubResource("RectangleShape2D_700tv")
+
+[node name="Roger" parent="." unique_id=1623168045 instance=ExtResource("2_g0573")]
+position = Vector2(478, 614)
+_acceleration = 600.0
+_deceleration = 1200.0
+
+[node name="Player" type="Node" parent="Roger" unique_id=1507348627]
+script = ExtResource("3_g0573")

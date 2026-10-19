@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3]
+
+[ext_resource type="AudioStream" uid="uid://dwwlf0m4rwmaq" path="res://Sounds/PinkStar/pinkstar_slime_2.ogg" id="1_s2"]
+[ext_resource type="AudioStream" uid="uid://bvph51ghjyxhw" path="res://Sounds/PinkStar/pinkstar_slime_3.ogg" id="2_s3"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("1_s2")
+stream_1/stream = ExtResource("2_s3")

@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c8st81xvln1tp"]
+
+[ext_resource type="AudioStream" uid="uid://l1vgbnoywasa" path="res://Sounds/Crabby/crabby_scuttle_01.wav" id="1_s01"]
+[ext_resource type="AudioStream" uid="uid://b26x8yf56c3b6" path="res://Sounds/Crabby/crabby_scuttle_03.wav" id="2_s03"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("1_s01")
+stream_1/stream = ExtResource("2_s03")

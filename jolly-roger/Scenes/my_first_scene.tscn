@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://t5lry85i83d6"]
+
+[ext_resource type="Texture2D" uid="uid://blpcwvvjm01ue" path="res://icon.svg" id="1_1304x"]
+[ext_resource type="PackedScene" uid="uid://dtl4jlucxbri4" path="res://Scenes/Characters/roger.tscn" id="2_g0573"]
+[ext_resource type="Script" uid="uid://bhisod6nmkwk2" path="res://Scripts/player.gd" id="3_g0573"]
+[ext_resource type="PackedScene" uid="uid://6akf5jqjsgvn" path="res://Scenes/Characters/crabby.tscn" id="4_xyk5t"]
+[ext_resource type="Script" uid="uid://ppewdnwflkuc" path="res://Scripts/test_ai.gd" id="5_a3m1n"]
+[ext_resource type="PackedScene" uid="uid://bqodunafp5shh" path="res://Scenes/Characters/fierce_tooth.tscn" id="6_nwdib"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/pink_star.tscn" id="6_ymwa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_700tv"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D" unique_id=572047008]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=11125254]
+position = Vector2(491, 524)
+zoom = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="." unique_id=1216062315]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello World"
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1975211161]
+position = Vector2(575, 630)
+scale = Vector2(8.968751, 0.24999988)
+texture = ExtResource("1_1304x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" unique_id=658456629]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=1530602831]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_700tv")
+
+[node name="Floor2" type="Sprite2D" parent="." unique_id=1834661993]
+position = Vector2(521, 551)
+scale = Vector2(1.3203133, 0.12499994)
+texture = ExtResource("1_1304x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor2" unique_id=1763856009]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/StaticBody2D" unique_id=645249720]
+shape = SubResource("RectangleShape2D_700tv")
+
+[node name="Roger" parent="." unique_id=1623168045 instance=ExtResource("2_g0573")]
+position = Vector2(478, 613)
+
+[node name="Player" type="Node" parent="Roger" unique_id=1507348627]
+script = ExtResource("3_g0573")
+
+[node name="Fierce Tooth" parent="." unique_id=1331769185 instance=ExtResource("6_nwdib")]
+position = Vector2(426, 499)
+_speed_scale = 0.6
+
+[node name="TestAI2" type="Node" parent="Fierce Tooth" unique_id=1509225339]
+script = ExtResource("5_a3m1n")
+
+[node name="Pink Star" parent="." unique_id=124928863 instance=ExtResource("6_ymwa6")]
+position = Vector2(480, 422)
+_speed_scale = 1.0
+
+[node name="TestAI3" type="Node" parent="Pink Star" unique_id=584412041]
+script = ExtResource("5_a3m1n")
+
+[node name="Pink Star3" parent="." unique_id=1974129701 instance=ExtResource("6_ymwa6")]
+position = Vector2(571, 410)
+_speed_scale = 1.2
+
+[node name="TestAI3" type="Node" parent="Pink Star3" unique_id=1937397474]
+script = ExtResource("5_a3m1n")
+
+[node name="Pink Star2" parent="." unique_id=1858582941 instance=ExtResource("6_ymwa6")]
+position = Vector2(524, 436)
+_speed_scale = 0.8
+
+[node name="TestAI3" type="Node" parent="Pink Star2" unique_id=1378586980]
+script = ExtResource("5_a3m1n")
+
+[node name="Crabby" parent="." unique_id=217219711 instance=ExtResource("4_xyk5t")]
+position = Vector2(639, 456)
+_speed_scale = 1.3
+
+[node name="TestAI4" type="Node" parent="Crabby" unique_id=384723240]
+script = ExtResource("5_a3m1n")
+
+[node name="Crabby2" parent="." unique_id=571727293 instance=ExtResource("4_xyk5t")]
+position = Vector2(363, 459)
+_speed_scale = 0.8
+
+[node name="TestAI5" type="Node" parent="Crabby2" unique_id=86009874]
+script = ExtResource("5_a3m1n")

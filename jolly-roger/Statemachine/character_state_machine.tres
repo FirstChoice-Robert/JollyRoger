@@ -1,0 +1,90 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://h2mjq553wn8n"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vtvxh"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uncj5"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kunpv"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r1srp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_omers"]
+advance_mode = 2
+advance_expression = "velocity.x !=0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1024"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bj3x4"]
+states/idle/node = SubResource("AnimationNodeAnimation_uncj5")
+states/idle/position = Vector2(402, 116)
+states/run/node = SubResource("AnimationNodeAnimation_kunpv")
+states/run/position = Vector2(548, 116)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r1srp"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_omers"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_b1024")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtvxh"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r1srp"]
+animation = &"ground"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_omers"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0uvqs"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bj3x4"]
+priority = 0
+advance_mode = 2
+advance_expression = "velocity.y < 0
+"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5e6aq"]
+advance_mode = 2
+advance_expression = "velocity.y >=0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bq4bj"]
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j8368"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iscrw"]
+advance_mode = 2
+advance_expression = "not is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5e6aq"]
+states/Locomotion/node = SubResource("AnimationNodeStateMachine_bj3x4")
+states/Locomotion/position = Vector2(487, 88)
+states/fall/node = SubResource("AnimationNodeAnimation_vtvxh")
+states/fall/position = Vector2(598, 279)
+states/ground/node = SubResource("AnimationNodeAnimation_r1srp")
+states/ground/position = Vector2(761, 202)
+states/jump/node = SubResource("AnimationNodeAnimation_omers")
+states/jump/position = Vector2(411, 212)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_0uvqs"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_bj3x4"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_5e6aq"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_bq4bj"), "ground", "Locomotion", SubResource("AnimationNodeStateMachineTransition_j8368"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_iscrw")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gxhtw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bq4bj"]
+states/Movement/node = SubResource("AnimationNodeStateMachine_5e6aq")
+states/Movement/position = Vector2(493, 106)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_gxhtw")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_im2l7"]
+advance_mode = 2
+
+[resource]
+states/WithSword/node = SubResource("AnimationNodeStateMachine_vtvxh")
+states/WithSword/position = Vector2(670, 277)
+states/WithoutSword/node = SubResource("AnimationNodeStateMachine_bq4bj")
+states/WithoutSword/position = Vector2(438, 65)
+transitions = ["Start", "WithoutSword", SubResource("AnimationNodeStateMachineTransition_im2l7")]
