@@ -3,12 +3,12 @@ extends Node2D
 ## Root script for every level scene. Main reads these to set up the
 ## player and camera when the level is loaded.
 
-## The level's main ground TileMapLayer (used by the camera to frame the floor).
+## The level's main ground TileMapLayer (used to work out the camera limits).
 @export var ground_layer : TileMapLayer
-## Work out the camera's left / right / bottom limits from the painted ground.
+## Work out the camera limits from the painted ground.
 @export var auto_camera_limits : bool = true
-## How far up the camera may go (world pixels). Used with auto limits.
-@export var camera_limit_top : int = -1000
+## With auto limits: how much sky (pixels) the camera may show above the highest ground.
+@export var sky_above_ground : int = 192
 ## Camera limits to use when auto_camera_limits is off.
 @export var manual_camera_limits : Rect2i = Rect2i(-128, -1000, 6400, 1768)
 
@@ -29,5 +29,6 @@ func get_camera_limits() -> Rect2i:
 	var bottom_right : Vector2 = ground_layer.to_global(Vector2(used.end * ts))
 	var left : int = int(top_left.x)
 	var right : int = int(bottom_right.x)
+	var top : int = int(top_left.y) - sky_above_ground
 	var bottom : int = int(bottom_right.y)
-	return Rect2i(left, camera_limit_top, right - left, bottom - camera_limit_top)
+	return Rect2i(left, top, right - left, bottom - top)

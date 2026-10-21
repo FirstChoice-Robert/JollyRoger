@@ -32,8 +32,7 @@ func load_level(scene : PackedScene) -> void:
 	_player.global_position = level.get_player_start()
 	_player.velocity = Vector2.ZERO
 
-	# Hook the camera up to this level.
-	_camera.ground_layer = level.ground_layer
+	# Fit the camera to this level.
 	var limits : Rect2i = level.get_camera_limits()
 	_camera.limit_left = limits.position.x
 	_camera.limit_top = limits.position.y
