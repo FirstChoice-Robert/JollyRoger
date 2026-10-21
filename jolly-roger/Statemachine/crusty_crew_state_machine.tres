@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" format=3]
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://ccc5c6jw2pvsa"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uncj5"]
 animation = &"idle"

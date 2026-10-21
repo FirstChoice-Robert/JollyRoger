@@ -87,36 +87,34 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/path = NodePath("../LandSound")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("8_bj3x4")
-}],
-"times": PackedFloat32Array(0.16666667)
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
 }
-tracks/2/use_blend = true
-tracks/3/type = "audio"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = false
-tracks/3/path = NodePath("../AudioStreamPlayer2D")
+tracks/3/path = NodePath("../LandVoice")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("9_0uvqs")
-}],
-"times": PackedFloat32Array(0.13333334)
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
 }
-tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j8368"]
 resource_name = "idle"
@@ -150,21 +148,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("7_uncj5"), ExtResource("8_kunpv"), ExtResource("9_r1srp")]
 }
-tracks/1/type = "audio"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/path = NodePath("../JumpVoice")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("15_omers")
-}],
-"times": PackedFloat32Array(0.033333335)
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
 }
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qk8x3"]
 resource_name = "run"
@@ -196,25 +193,23 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/path = NodePath("../Footsteps")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("25_0uvqs")
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play"
 }, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("25_0uvqs")
-}],
-"times": PackedFloat32Array(0, 0.3)
+"args": [],
+"method": &"play"
+}]
 }
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q8sqc"]
 _data = {
@@ -251,5 +246,22 @@ anim_player = NodePath("..")
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ui81h")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1566506487]
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1566506487]
+stream = ExtResource("25_0uvqs")
 volume_db = -15.209
+max_polyphony = 3
+
+[node name="JumpVoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_omers")
+volume_db = -15.209
+max_polyphony = 3
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_bj3x4")
+volume_db = -15.209
+max_polyphony = 3
+
+[node name="LandVoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_0uvqs")
+volume_db = -15.209
+max_polyphony = 3

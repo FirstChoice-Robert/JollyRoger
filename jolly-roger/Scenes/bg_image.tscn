@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vlv3ibptysm8"]
+
+[ext_resource type="Texture2D" uid="uid://8dd1pc3ldggw" path="res://Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_o3r6l"]
+
+[node name="BgImage" type="Sprite2D" unique_id=1802791787]
+scale = Vector2(2.3333333, 3.375)
+texture = ExtResource("1_o3r6l")
