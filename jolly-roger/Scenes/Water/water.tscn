@@ -1,0 +1,152 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/water.gd" id="1_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="2_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="3_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 1/1.png" id="4_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 1/2.png" id="5_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 1/3.png" id="6_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 1/4.png" id="7_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 1/5.png" id="8_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 2/1.png" id="9_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 2/2.png" id="10_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 2/3.png" id="11_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Water Splash 2/4.png" id="12_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/1.png" id="13_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/2.png" id="14_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/3.png" id="15_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/4.png" id="16_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/5.png" id="17_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 1/6.png" id="18_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/1.png" id="19_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/2.png" id="20_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/3.png" id="21_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/4.png" id="22_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/5.png" id="23_w"]
+[ext_resource type="Texture2D" path="res://Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/6.png" id="24_w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
+resource_local_to_scene = true
+size = Vector2(96, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_splash"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w")
+}],
+"loop": false,
+"name": &"in",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w")
+}],
+"loop": false,
+"name": &"out",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_reflex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_w")
+}],
+"loop": true,
+"name": &"reflex_1",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_w")
+}],
+"loop": true,
+"name": &"reflex_2",
+"speed": 8.0
+}]
+
+[node name="Water" type="Area2D"]
+z_index = 10
+script = ExtResource("1_w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 56)
+shape = SubResource("RectangleShape2D_water")
+
+[node name="Top" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_w")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 32)
+
+[node name="Bottom" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 32)
+texture = ExtResource("3_w")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 80)
+
+[node name="Splash" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_splash")
+animation = &"in"
+
+[node name="Reflection" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_reflex")
+animation = &"reflex_1"

@@ -25,10 +25,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(32, 5)
+
 [node name="PalmTree" type="StaticBody2D" unique_id=490589805]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852297272]
-position = Vector2(320, 384)
+position = Vector2(-4, -12)
 sprite_frames = SubResource("SpriteFrames_700tv")
 autoplay = "default"
-frame_progress = 0.84363127
+centered = false
+
+[node name="TopCollision" type="CollisionShape2D" parent="." unique_id=1104691203]
+position = Vector2(15, -8.5)
+shape = SubResource("RectangleShape2D_top")
+one_way_collision = true

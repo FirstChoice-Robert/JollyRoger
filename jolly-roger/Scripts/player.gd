@@ -11,3 +11,4 @@ func _input(event: InputEvent):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_character.run(Input.get_axis("run_left","run_right"))
+	_character.swim(Input.get_action_strength("move_down"))

@@ -83,6 +83,8 @@ animations = [{
 
 [node name="background" type="Node2D" unique_id=880342122]
 z_index = -10
+script = ExtResource("20_plx")
+parallax_factor = 0.0
 
 [node name="AdditionalSky" type="Sprite2D" parent="." unique_id=2126203925]
 position = Vector2(16, -304)

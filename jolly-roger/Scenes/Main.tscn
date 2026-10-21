@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4sns8loclcby"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/level_2.tscn" id="2_level"]
+[ext_resource type="Script" uid="uid://c8uhlj5vsy1y3" path="res://Scripts/platformer_camera.gd" id="3_pcam"]
+[ext_resource type="PackedScene" uid="uid://lqkh1klu7j5q" path="res://Scenes/background.tscn" id="4_bg"]
+[ext_resource type="PackedScene" uid="uid://dtl4jlucxbri4" path="res://Scenes/Characters/roger.tscn" id="5_roger"]
+[ext_resource type="Script" uid="uid://bhisod6nmkwk2" path="res://Scripts/player.gd" id="6_player"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+level_scene = ExtResource("2_level")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(1.7, 1.7)
+script = ExtResource("3_pcam")
+target = NodePath("../Roger")
+
+[node name="background" parent="Camera2D" instance=ExtResource("4_bg")]
+
+[node name="Roger" parent="." instance=ExtResource("5_roger")]
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("6_player")
+
+[node name="LevelHolder" type="Node2D" parent="."]

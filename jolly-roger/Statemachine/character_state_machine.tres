@@ -41,8 +41,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bj3x4"]
 priority = 0
 advance_mode = 2
-advance_expression = "velocity.y < 0
-"
+advance_expression = "velocity.y < 0 and not is_in_water()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5e6aq"]
 advance_mode = 2
